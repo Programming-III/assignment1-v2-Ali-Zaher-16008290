@@ -6,6 +6,15 @@
 #using namespace std;
 //#write student class here
 
+class Student : public Person {
+private:
+    int Yearlevel;
+    string major;
+public:
+    Student(string n, int id, int yl, string m) : Person(n, id);
+    void display();
+
+};
 
 
 
