@@ -9,16 +9,12 @@
 using namespace std;
 
 // ==================== Person Class Implementation =========================
-class Person {
-    private:
-    string name;
-	int age;
-public:
-    Person(string n, int id) {
+
+   Person::Person(string n, int id) {
 		name = n;
 		id = id;
     }
-    void display() {
+    void Person::display() {
         cout << "Name: " << name << " Age: " << age << endl;
 	}
 };
@@ -30,20 +26,13 @@ public:
 
 
 // ==================== Student Class Implementation ====================
-class Student : public Person {
-private:
-    int Yearlevel;
-    string major;
-public:
-    Student(string n, int id, int yl, string m) : Person(n, id) {
+
+   Student::Student(string n, int id, int yl, string m) : Person(n, id) {
         Yearlevel = yl;
         major = m;
     }
- Student() : Person("", 0) {
-     Yearlevel = 0;
-     major = "";
-	}
-    void display() {
+ 
+    void Student::display() {
         cout << "Year Level: " << Yearlevel << " Major: " << major << endl;
 	}
 
@@ -54,16 +43,12 @@ public:
 
 
 // ==================== Instructor Class Implementation ====================
-class instructor : public Person {
-private:
-	string department;
-    int experienceYears;
-public:
-    instructor(string n, int id, string dept, int exp) : Person(n, id) {
+
+   instructor::instructor(string n, int id, string dept, int exp) : Person(n, id) {
         department = dept;
         experienceYears = exp;
     }
-    void display() {
+    void instructor::display() {
         cout << "Department: " << department << " Experience Years: " << experienceYears << endl;
 	}
 };
@@ -73,28 +58,21 @@ public:
 
 
 // ==================== Course Class Implementation ====================
-class Course {
-private:
-    string courseName;
-	string courseCode;
-    int maxStudents;
-	Student* students;
-    int currentStudents;
-public:
-    Course(string cn, string cc, int ms) {
+
+   Course::Course(string cn, string cc, int ms) {
         courseName = cn;
         courseCode = cc;
         maxStudents = ms;
         students = new Student[ms];
         currentStudents = 0;
 	}
-    void addStudent(const Student& s) {
+    void Course::addStudent(const Student& s) {
         if (currentStudents < maxStudents) {
             students[currentStudents] = s;
             currentStudents++;
         }
     }
-    void display() {
+    void Course::display() {
         cout << "Course Name: " << courseName << " Course Code: " << courseCode << endl;
         for (int i = 0; i < currentStudents; i++) {
             students[i].display();
