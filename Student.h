@@ -12,6 +12,7 @@ private:
     string major;
 public:
   Student(string n, int id, int yl, string m);
+Student();
     void display();
 
 };
