@@ -11,7 +11,7 @@ private:
     int Yearlevel;
     string major;
 public:
-    Student(string n, int id, int yl, string m) : Person(n, id);
+  Student(string n, int id, int yl, string m);
     void display();
 
 };
