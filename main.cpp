@@ -39,6 +39,10 @@ public:
         Yearlevel = yl;
         major = m;
     }
+ Student() : Person("", 0) {
+     Yearlevel = 0;
+     major = "";
+	}
     void display() {
         cout << "Year Level: " << Yearlevel << " Major: " << major << endl;
 	}
@@ -107,7 +111,15 @@ public:
 
 // ==================== Main Function ====================
 int main() {
-   
+   Person p("Omar Nabil", 2202);
+p.display();
+Student s("Omar Nabile", 2, 2, "informatics");
+s.display();
+Course c("introduction to programming", "CS201", 3);
+c.addStudent(s);
+c.display();
+instructor i("Dr.Lina Khaled", 3, "Computer Science", 5);
+i.display();
     
     return 0;
 }
